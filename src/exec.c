@@ -4,10 +4,10 @@
  *	commands, command lines, buffers, files and startup files.
  *
  *	written 1986 by Daniel Lawrence
- *	modified by Petri Kutvonen
+ *	modified by Petri Kutvonen and Will Dey
  */
 
-#include <stdio.h>
+#include "stdlib.hh"
 
 #include "estruct.h"
 #include "edef.h"
@@ -535,7 +535,7 @@ int dobuf(struct buffer *bp)
 	while (lp != hlp) {
 		/* allocate eline and copy macro line to it */
 		linlen = lp->l_used;
-		if ((einit = eline = malloc(linlen + 1)) == NULL) {
+		if ((einit = eline = (char*) malloc(linlen + 1)) == NULL) {
 			mlwrite("%%Out of Memory during macro execution");
 			freewhile(whlist);
 			return FALSE;

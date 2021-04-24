@@ -3,10 +3,10 @@
  *      This file contains the command processing functions for a number of
  *      random commands. There is no functional grouping here, for sure.
  *
- *	Modified by Petri Kutvonen
+ *	Modified by Petri Kutvonen and Will Dey
  */
 
-#include <stdio.h>
+#include "u-lib.hh"
 
 #include "estruct.h"
 #include "edef.h"

@@ -54,10 +54,10 @@
  *	whether or not to make use of the array.  And, put in the
  *	appropriate new structures and variables.
  *
- *	Modified by Petri Kutvonen
+ *	Modified by Petri Kutvonen and Will Dey
  */
 
-#include <stdio.h>
+#include "u-lib.hh"
 
 #include "estruct.h"
 #include "edef.h"

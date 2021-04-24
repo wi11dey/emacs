@@ -6,10 +6,10 @@
  *	located in SYS$SYSTEM.
  *
  *	Author:  Curtis Smith
- *	modified by Petri Kutvonen
+ *	modified by Petri Kutvonen and Will Dey
  */
 
-#include	<stdio.h>	/* Standard I/O package         */
+#include	"u-lib.hh"	/* Standard I/O package         */
 #include	"estruct.h"	/* Emacs' structures            */
 #include	"edef.h"	/* Emacs' definitions           */
 

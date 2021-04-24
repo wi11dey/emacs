@@ -32,9 +32,9 @@ HDR=ebind.h edef.h efunc.h epath.h estruct.h evar.h util.h version.h
 
 # DO NOT ADD OR MODIFY ANY LINES ABOVE THIS -- make source creates them
 
-CC=gcc
-WARNINGS=-Wall -Wstrict-prototypes
-CFLAGS=-O2 $(WARNINGS) -g
+CC=g++
+WARNINGS=-w
+CFLAGS=-O2 $(WARNINGS) -g -I../../. -L../../obj -std=gnu++1z
 #CC=c89 +O3			# HP
 #CFLAGS= -D_HPUX_SOURCE -DSYSV
 #CFLAGS=-O4 -DSVR4		# Sun
@@ -50,12 +50,14 @@ ifeq ($(uname_S),Darwin)
 endif
 #DEFINES=-DAUTOCONF
 #LIBS=-ltermcap			# BSD
-LIBS=-lcurses			# SYSV
+#LIBS=-lcurses			# SYSV
 #LIBS=-ltermlib
 #LIBS=-L/usr/lib/termcap -ltermcap
 LFLAGS=-hbx
 BINDIR=/usr/bin
 LIBDIR=/usr/lib
+
+all: $(OBJ)
 
 $(PROGRAM): $(OBJ)
 	$(E) "  LINK    " $@

@@ -4,12 +4,13 @@
  * over a serial line. The serial I/O services are provided by routines in
  * "termio.c". It compiles into nothing if not an ANSI device.
  *
- *	modified by Petri Kutvonen
+ *	modified by Petri Kutvonen and Will Dey
  */
 
 #define	termdef	1		/* don't define "term" external */
 
-#include        <stdio.h>
+#include        "u-lib.hh"
+
 #include	"estruct.h"
 #include        "edef.h"
 

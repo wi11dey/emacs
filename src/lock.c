@@ -5,7 +5,7 @@
  *	written by Daniel Lawrence
  */
 
-#include <stdio.h>
+#include "u-lib.hh"
 #include "estruct.h"
 #include "edef.h"
 #include "efunc.h"

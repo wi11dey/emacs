@@ -12,12 +12,7 @@
 
 #ifdef POSIX
 
-#include <errno.h>
-#include <fcntl.h>
-#include <signal.h>
-#include <stdio.h>
-#include <termios.h>
-#include <unistd.h>
+#include "u-lib.hh"
 
 #include "estruct.h"
 #include "edef.h"

@@ -3,15 +3,16 @@
  * The routines in this file read and write ASCII files from the disk. All of
  * the knowledge about files are here.
  *
- *	modified by Petri Kutvonen
+ *	modified by Petri Kutvonen and Will Dey
  */
 
-#include        <stdio.h>
+#include        "stdlib.hh"
+
 #include	"estruct.h"
 #include        "edef.h"
 #include	"efunc.h"
 
-static FILE *ffp;			/* File pointer, all functions. */
+static FILE ffp;			/* File pointer, all functions. */
 static int eofflag;			/* end-of-file flag */
 
 /*

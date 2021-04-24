@@ -19,10 +19,10 @@
  *	  checknext(), since there were no circumstances where
  *	  it ever equalled FALSE.
  *
- *	Modified by Petri Kutvonen
+ *	Modified by Petri Kutvonen and Will Dey
  */
 
-#include <stdio.h>
+#include "u-lib.hh"
 
 #include "estruct.h"
 #include "edef.h"

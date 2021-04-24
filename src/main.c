@@ -51,7 +51,7 @@
  *
  */
 
-#include <stdio.h>
+#include "stdlib.hh"
 
 /* Make global definitions not external. */
 #define	maindef
@@ -92,17 +92,23 @@ void usage(int status)
 {
   printf("Usage: %s filename\n", PROGRAM_NAME);
   printf("   or: %s [options]\n\n", PROGRAM_NAME);
-  fputs("      +          start at the end of file\n", stdout);
-  fputs("      +<n>       start at line <n>\n", stdout);
-  fputs("      -g[G]<n>   go to line <n>\n", stdout);
-  fputs("      --help     display this help and exit\n", stdout);
-  fputs("      --version  output version information and exit\n", stdout);
+  printf("      +          start at the end of file\n");
+  printf("      +<n>       start at line <n>\n");
+  printf("      -g[G]<n>   go to line <n>\n");
+  printf("      --help     display this help and exit\n");
+  printf("      --version  output version information and exit\n");
 
   exit(status);
 }
 
+uint8_t* heap;
+uint8_t* data;
+char* cbuf;
+
 int main(int argc, char **argv)
 {
+	heap = data = reinterpret_cast<uint8_t*>(round_up(reinterpret_cast<uintptr_t>(end), PAGESIZE));
+	cbuf = malloc(1);
 	int c = -1;	/* command character */
 	int f;		/* default flag */
 	int n;		/* numeric repeat count */

@@ -3,11 +3,10 @@
  *	Various input routines
  *
  *	written by Daniel Lawrence 5/9/86
- *	modified by Petri Kutvonen
+ *	modified by Petri Kutvonen and Will Dey
  */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "u-lib.hh"
 
 #include "estruct.h"
 #include "edef.h"

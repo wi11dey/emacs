@@ -6,10 +6,10 @@
  * functions that adjust the top line in the window and invalidate the
  * framing, are hard.
  *
- *	modified by Petri Kutvonen
+ *	modified by Petri Kutvonen and Will Dey
  */
 
-#include <stdio.h>
+#include "stdlib.hh"
 
 #include "estruct.h"
 #include "edef.h"

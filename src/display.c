@@ -8,10 +8,7 @@
  *	Modified by Petri Kutvonen
  */
 
-#include <errno.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
+#include "u-lib.hh"
 
 #include "estruct.h"
 #include "edef.h"

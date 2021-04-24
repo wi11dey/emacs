@@ -5,8 +5,7 @@
  *	<odified by Petri Kutvonen
  */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "u-lib.hh"
 
 #include "estruct.h"
 #include "edef.h"

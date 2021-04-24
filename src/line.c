@@ -15,7 +15,7 @@
 
 #include "line.h"
 
-#include <stdio.h>
+#include "u-lib.hh"
 
 #include "estruct.h"
 #include "edef.h"

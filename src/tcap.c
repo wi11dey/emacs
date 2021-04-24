@@ -2,7 +2,7 @@
  *
  *	Unix V7 SysV and BS4 Termcap video driver
  *
- *	modified by Petri Kutvonen
+ *	modified by Petri Kutvonen and Will Dey
  */
 
 /*
@@ -13,19 +13,13 @@
 #define USE_BROKEN_OPTIMIZATION 0
 #define	termdef	1 /* Don't define "term" external. */
 
-#include <curses.h>
-#include <stdio.h>
-#include <term.h>
+#include "u-lib.hh"
 
 #include "estruct.h"
 #include "edef.h"
 #include "efunc.h"
 
 #if TERMCAP
-
-#if UNIX
-#include <signal.h>
-#endif
 
 #define	MARGIN	8
 #define	SCRSIZ	64
@@ -74,9 +68,9 @@ static char *CS, *DL, *AL, *SF, *SR;
 #endif
 
 struct terminal term = {
-	0, /* These four values are set dynamically at open time. */
+	CONSOLE_ROWS, /* These four values are set dynamically at open time. */
 	0,
-	0,
+	CONSOLE_COLUMNS,
 	0,
 	MARGIN,
 	SCRSIZ,

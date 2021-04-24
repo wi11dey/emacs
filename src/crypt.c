@@ -2,10 +2,11 @@
  *
  *	Encryption routines
  *
- *	written by Dana Hoggatt and Daniel Lawrence
+ *	written by Dana Hoggatt and Daniel Lawrence and Will Dey
  */
 
-#include	<stdio.h>
+#include	"u-lib.hh"
+
 #include	"estruct.h"
 #include	"edef.h"
 #include        "efunc.h"

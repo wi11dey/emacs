@@ -3,10 +3,10 @@
  *	Expression evaluation functions
  *
  *	written 1986 by Daniel Lawrence
- *	modified by Petri Kutvonen
+ *	modified by Petri Kutvonen and Will Dey
  */
 
-#include <stdio.h>
+#include "stdlib.hh"
 
 #include "estruct.h"
 #include "edef.h"
@@ -145,7 +145,7 @@ char *gtfun(char *fname)
 	case UFENV:
 #if	ENVFUNC
 		tsp = getenv(arg1);
-		return tsp == NULL ? "" : tsp;
+		return tsp == NULL ? (char*) "" : tsp;
 #else
 		return "";
 #endif
@@ -155,7 +155,7 @@ char *gtfun(char *fname)
 		return ltos(fexist(arg1));
 	case UFFIND:
 		tsp = flook(arg1, TRUE);
-		return tsp == NULL ? "" : tsp;
+		return tsp == NULL ? (char*) "" : tsp;
 	case UFBAND:
 		return itoa(atoi(arg1) & atoi(arg2));
 	case UFBOR:
@@ -284,7 +284,7 @@ char *gtenv(char *vname)
 	case EVREPLACE:
 		return rpat;
 	case EVMATCH:
-		return (patmatch == NULL) ? "" : patmatch;
+		return (patmatch == NULL) ? (char*) "" : patmatch;
 	case EVKILL:
 		return getkill();
 	case EVCMODE:
@@ -531,7 +531,7 @@ int svar(struct variable_description *var, char *value)
 	case TKVAR:		/* set a user variable */
 		if (uv[vnum].u_value != NULL)
 			free(uv[vnum].u_value);
-		sp = malloc(strlen(value) + 1);
+		sp = (char*) malloc(strlen(value) + 1);
 		if (sp == NULL)
 			return FALSE;
 		strcpy(sp, value);
