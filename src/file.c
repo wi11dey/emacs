@@ -4,10 +4,11 @@
  *	and lookup of disk files.  All of details about the
  *	reading and writing of the disk are in "fileio.c".
  *
- *	modified by Petri Kutvonen and Will Dey
+ *	modified by Petri Kutvonen
  */
 
-#include "stdlib.hh"
+#include <stdio.h>
+#include <unistd.h>
 
 #include "estruct.h"
 #include "edef.h"

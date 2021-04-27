@@ -6,7 +6,7 @@
  *	modified by Petri Kutvonen and Will Dey
  */
 
-#include "stdlib.hh"
+#include <stdlib.h>
 
 #include "estruct.h"
 #include "edef.h"

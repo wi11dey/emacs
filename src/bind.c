@@ -4,10 +4,10 @@
  *	descriptions, help commands and startup file.
  *
  *	Written 11-feb-86 by Daniel Lawrence
- *	Modified by Petri Kutvonen and Will Dey
+ *	Modified by Petri Kutvonen
  */
 
-#include "stdlib.hh"
+#include <stdio.h>
 
 #include "estruct.h"
 #include "edef.h"

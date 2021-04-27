@@ -4,10 +4,10 @@
  *	commands, command lines, buffers, files and startup files.
  *
  *	written 1986 by Daniel Lawrence
- *	modified by Petri Kutvonen and Will Dey
+ *	modified by Petri Kutvonen
  */
 
-#include "stdlib.hh"
+#include <stdio.h>
 
 #include "estruct.h"
 #include "edef.h"

@@ -3,16 +3,15 @@
  * The routines in this file read and write ASCII files from the disk. All of
  * the knowledge about files are here.
  *
- *	modified by Petri Kutvonen and Will Dey
+ *	modified by Petri Kutvonen
  */
 
-#include        "stdlib.hh"
-
+#include        <stdio.h>
 #include	"estruct.h"
 #include        "edef.h"
 #include	"efunc.h"
 
-static FILE ffp;			/* File pointer, all functions. */
+static FILE *ffp;			/* File pointer, all functions. */
 static int eofflag;			/* end-of-file flag */
 
 /*
@@ -133,7 +132,7 @@ int ffgetline(void)
 
 	/* if we don't have an fline, allocate one */
 	if (fline == NULL)
-		if ((fline = malloc(flen = NSTRING)) == NULL)
+		if ((fline = (char*) malloc(flen = NSTRING)) == NULL)
 			return FIOMEM;
 
 	/* read the line in */
@@ -166,7 +165,7 @@ int ffgetline(void)
 			/* if it's longer, get more room */
 			if (i >= flen) {
 				if ((tmpline =
-				     malloc(flen + NSTRING)) == NULL)
+				     (char*) malloc(flen + NSTRING)) == NULL)
 					return FIOMEM;
 				strncpy(tmpline, fline, flen);
 				flen += NSTRING;

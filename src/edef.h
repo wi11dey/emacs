@@ -10,7 +10,8 @@
 #ifndef EDEF_H_
 #define EDEF_H_
 
-#include "u-lib.hh"
+#include <stdlib.h>
+#include <string.h>
 
 /* Some global fuction declarations. */
 typedef int (*fn_t)(int, int);

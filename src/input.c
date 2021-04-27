@@ -3,10 +3,11 @@
  *	Various input routines
  *
  *	written by Daniel Lawrence 5/9/86
- *	modified by Petri Kutvonen and Will Dey
+ *	modified by Petri Kutvonen
  */
 
-#include "u-lib.hh"
+#include <stdio.h>
+#include <unistd.h>
 
 #include "estruct.h"
 #include "edef.h"
@@ -588,7 +589,7 @@ int getstring(char *prompt, char *buf, int nbuf, int eolchar)
 				if (!iswild)
 					strcat(ffbuf, "*");
 				strcat(ffbuf, " >");
-				xmkstemp(tmp);
+				mkstemp(tmp);
 				strcat(ffbuf, tmp);
 				strcat(ffbuf, " 2>&1");
 				system(ffbuf);

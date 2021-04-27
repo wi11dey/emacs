@@ -6,10 +6,10 @@
  *	keys. Like everyone else, they set hints
  *	for the display system
  *
- *	modified by Petri Kutvonen and Will Dey
+ *	modified by Petri Kutvonen
  */
 
-#include        "stdlib.hh"
+#include        <stdio.h>
 
 #include "estruct.h"
 #include "edef.h"

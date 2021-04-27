@@ -8,7 +8,10 @@
  *	Modified by Petri Kutvonen
  */
 
-#include "u-lib.hh"
+#include <errno.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <unistd.h>
 
 #include "estruct.h"
 #include "edef.h"
@@ -84,13 +87,13 @@ void vtinit(void)
 	TTopen();		/* open the screen */
 	TTkopen();		/* open the keyboard */
 	TTrev(FALSE);
-	vscreen = xmalloc(term.t_mrow * sizeof(struct video *));
+	vscreen = (video**) xmalloc(term.t_mrow * sizeof(struct video *));
 
 #if	MEMMAP == 0 || SCROLLCODE
-	pscreen = xmalloc(term.t_mrow * sizeof(struct video *));
+	pscreen = (video**) xmalloc(term.t_mrow * sizeof(struct video *));
 #endif
 	for (i = 0; i < term.t_mrow; ++i) {
-		vp = xmalloc(sizeof(struct video) + term.t_mcol*4);
+		vp = (video*) xmalloc(sizeof(struct video) + term.t_mcol*4);
 		vp->v_flag = 0;
 #if	COLOR
 		vp->v_rfcolor = 7;
@@ -98,7 +101,7 @@ void vtinit(void)
 #endif
 		vscreen[i] = vp;
 #if	MEMMAP == 0 || SCROLLCODE
-		vp = xmalloc(sizeof(struct video) + term.t_mcol*4);
+		vp = (video*) xmalloc(sizeof(struct video) + term.t_mcol*4);
 		vp->v_flag = 0;
 		pscreen[i] = vp;
 #endif

@@ -5,13 +5,12 @@
  * screen output. It compiles into nothing if not an IBM-PC driver
  * Supported monitor cards include CGA, MONO and EGA.
  *
- *	modified by Petri Kutvonen and Will Dey
+ *	modified by Petri Kutvonen
  */
 
 #define	termdef	1		/* don't define "term" external */
 
-#include        "u-lib.hh"
-
+#include        <stdio.h>
 #include	"estruct.h"
 #include        "edef.h"
 
