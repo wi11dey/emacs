@@ -4,10 +4,10 @@
  *      paragraph at a time.  There are all sorts of word mode commands.  If I
  *      do any sentence mode commands, they are likely to be put in this file.
  *
- *	Modified by Petri Kutvonen and Will Dey
+ *	Modified by Petri Kutvonen
  */
 
-#include "u-lib.hh"
+#include <stdio.h>
 
 #include "estruct.h"
 #include "edef.h"

@@ -54,10 +54,10 @@
  *	whether or not to make use of the array.  And, put in the
  *	appropriate new structures and variables.
  *
- *	Modified by Petri Kutvonen and Will Dey
+ *	Modified by Petri Kutvonen
  */
 
-#include "u-lib.hh"
+#include <stdio.h>
 
 #include "estruct.h"
 #include "edef.h"
@@ -666,7 +666,7 @@ void savematch(void)
 	if (patmatch != NULL)
 		free(patmatch);
 
-	ptr = patmatch = malloc(matchlen + 1);
+	ptr = patmatch = (char*) malloc(matchlen + 1);
 
 	if (ptr != NULL) {
 		curoff = matchoff;
@@ -750,7 +750,7 @@ static int replaces(int kind, int f, int n)
 	/* Ask the user for the text of a pattern.
 	 */
 	if ((status = readpattern((kind ==
-				   FALSE ? "Replace" : "Query replace"),
+				   FALSE ? (char*) "Replace" : (char*) "Query replace"),
 				  &pat[0], TRUE))
 	    != TRUE)
 		return status;
@@ -1237,7 +1237,7 @@ static int rmcstr(void)
 			if (mj != 0) {
 				rmcptr->mc_type = LITCHAR;
 				if ((rmcptr->rstr =
-				     malloc(mj + 1)) == NULL) {
+					 (char*) malloc(mj + 1)) == NULL) {
 					mlwrite("%%Out of memory");
 					status = FALSE;
 					break;
@@ -1258,7 +1258,7 @@ static int rmcstr(void)
 			 * of one, because we have to count the
 			 * current character.
 			 */
-			if ((rmcptr->rstr = malloc(mj + 2)) == NULL) {
+			if ((rmcptr->rstr = (char*) malloc(mj + 2)) == NULL) {
 				mlwrite("%%Out of memory");
 				status = FALSE;
 				break;
@@ -1287,7 +1287,7 @@ static int rmcstr(void)
 
 	if (rmagical && mj > 0) {
 		rmcptr->mc_type = LITCHAR;
-		if ((rmcptr->rstr = malloc(mj + 1)) == NULL) {
+		if ((rmcptr->rstr = (char*) malloc(mj + 1)) == NULL) {
 			mlwrite("%%Out of memory.");
 			status = FALSE;
 		}

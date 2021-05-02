@@ -4,7 +4,7 @@
  *	commands, command lines, buffers, files and startup files.
  *
  *	written 1986 by Daniel Lawrence
- *	modified by Petri Kutvonen
+ *	modified by Petri Kutvonen and Will Dey
  */
 
 #include <stdio.h>

@@ -4,10 +4,10 @@
  *      between "." and mark. Some functions are commands. Some functions are
  *      just for internal use.
  *
- *	Modified by Petri Kutvonen and Will Dey
+ *	Modified by Petri Kutvonen
  */
 
-#include "u-lib.hh"
+#include <stdio.h>
 
 #include "estruct.h"
 #include "edef.h"

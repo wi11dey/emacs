@@ -5,7 +5,7 @@
  *
  */
 
-#include "u-lib.hh"
+#include <stdio.h>
 
 #include "estruct.h"
 #include "edef.h"
@@ -324,7 +324,7 @@ int splitwind(int f, int n)
 		mlwrite("Cannot split a %d line window", curwp->w_ntrows);
 		return FALSE;
 	}
-	wp = xmalloc(sizeof(struct window));
+	wp = (window*) xmalloc(sizeof(struct window));
 	++curbp->b_nwnd;	/* Displayed twice.     */
 	wp->w_bufp = curbp;
 	wp->w_dotp = curwp->w_dotp;

@@ -8,12 +8,12 @@
  * bell on the VT52 is terrible, so the "beep"
  * routine is conditionalized on defining BEL.
  *
- *	modified by Petri Kutvonen and Will Dey
+ *	modified by Petri Kutvonen
  */
 
 #define	termdef	1		/* don't define "term" external */
 
-#include        "u-lib.hh"
+#include        <stdio.h>
 #include        "estruct.h"
 #include	"edef.h"
 

@@ -5,12 +5,12 @@
  * characters, and write characters in a barely buffered fashion on the display.
  * All operating systems.
  *
- *	modified by Petri Kutvonen and Will Dey
+ *	modified by Petri Kutvonen
  */
 
 #ifndef POSIX
 
-#include        "u-lib.hh"
+#include        <stdio.h>
 #include	"estruct.h"
 #include        "edef.h"
 
