@@ -1,3 +1,4 @@
+#include "u-lib.hh"
 #include "utf8.h"
 
 /*
@@ -95,4 +96,24 @@ unsigned unicode_to_utf8(unsigned int c, char *utf8)
 		reverse_string(utf8, p);
 	}
 	return bytes;
+}
+
+void Eread_loop() {
+    static char buf[4096];      // static so stack size is small
+    size_t pos = 0;
+    bool done = false;
+    while (!done) {
+        ssize_t n = sys_read(0, buf + pos, sizeof(buf) - pos - 1);
+        if (n < 0) {
+            dprintf(2, "Error reading from stdin\n");
+            sys_exit(1);
+        } else if (n == 0) {
+            buf[pos + n] = '\n';
+            done = true;
+            ++n;
+        }
+        pos += n;
+        buf[pos] = 0;
+        assert(memchr(buf, 0, pos) == nullptr);
+    }
 }

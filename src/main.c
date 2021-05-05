@@ -53,7 +53,12 @@
 
 #include "stdlib.hh"
 
+#define ANDAND  1
+#define OROR    2
+
 #include "main.hh"
+
+void Eread_loop();
 
 void usage(int status)
 {
@@ -68,18 +73,27 @@ void usage(int status)
   exit(status);
 }
 
+void wrap_modeline(char* filename, bool here);
+
 uint8_t* heap;
 uint8_t* data;
 char* cbuf;
 
 int main(int argc, char **argv)
 {
+	sys_map_console(console);
+	for (int i = 0; i < CONSOLE_ROWS*CONSOLE_COLUMNS; i++) {
+		console[i] = ' ';
+	}
 	heap = data = reinterpret_cast<uint8_t*>(round_up(reinterpret_cast<uintptr_t>(end), PAGESIZE));
 	cbuf = (char*) malloc(1);
 
 	if (argc < 2) {
 		usage(1);
 	}
+	wrap_modeline(argv[1], false);
+
+    Eread_loop();
 
 	return 0;
 }
